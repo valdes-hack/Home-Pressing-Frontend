@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
@@ -7,9 +6,6 @@ import ProcessSteps from "@/components/ProcessSteps";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
-import Bubbles from "@/components/Bubbles";
-import ScrollProgress from "@/components/ScrollProgress";
 
 function SectionTitle({
   eyebrow,
@@ -32,40 +28,32 @@ function SectionTitle({
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-navy-950 text-white relative overflow-x-hidden selection:bg-brand-500 selection:text-slate-950">
-      <ScrollProgress />
-      <Bubbles />
-      <Navbar />
+    <div className="space-y-12">
+      <Hero />
+      <Marquee />
 
-      <div className="pt-24">
-        <Hero />
-        <Marquee />
+      <section className="section">
+        <SectionTitle eyebrow="Nos services" title="Un soin sur mesure pour" highlight="chaque tissu" />
+        <ServicesGrid />
+      </section>
 
-        <section className="section">
-          <SectionTitle eyebrow="Nos services" title="Un soin sur mesure pour" highlight="chaque tissu" />
-          <ServicesGrid />
-        </section>
+      <section className="section">
+        <SectionTitle eyebrow="Comment ça marche" title="Simple, rapide et" highlight="transparent" />
+        <ProcessSteps />
+      </section>
 
-        <section className="section">
-          <SectionTitle eyebrow="Comment ça marche" title="Simple, rapide et" highlight="transparent" />
-          <ProcessSteps />
-        </section>
+      <section className="section">
+        <Stats />
+      </section>
 
-        <section className="section">
-          <Stats />
-        </section>
+      <section className="section">
+        <SectionTitle eyebrow="Témoignages" title="Ils nous font" highlight="confiance" />
+        <Testimonials />
+      </section>
 
-        <section className="section">
-          <SectionTitle eyebrow="Témoignages" title="Ils nous font" highlight="confiance" />
-          <Testimonials />
-        </section>
-
-        <section className="section !pt-6">
-          <CTA />
-        </section>
-
-        <Footer />
-      </div>
-    </main>
+      <section className="section !pt-6">
+        <CTA />
+      </section>
+    </div>
   );
 }

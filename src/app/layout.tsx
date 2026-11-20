@@ -3,6 +3,7 @@ import "@fontsource-variable/plus-jakarta-sans";
 import "@fontsource-variable/sora";
 import './globals.css';
 import PwaRegister from '@/components/PwaRegister';
+import ShowcaseShell from '@/components/ShowcaseShell';
 
 export const metadata: Metadata = {
   title: 'Atlantic Palace Pressing — Gestion Multi-Agences',
@@ -54,7 +55,9 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className="min-h-screen bg-navy-950 text-white antialiased font-sans">
-        {children}
+        <ShowcaseShell>
+          {children}
+        </ShowcaseShell>
         <PwaRegister />
       </body>
     </html>
