@@ -4,8 +4,42 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
+    @apply bg-slate-900 text-slate-100 antialiased;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
+/* Glassmorphism et styles vitrine boutique */
+@layer components {
+  .glass {
+    @apply border border-white/10 bg-white/[0.05] backdrop-blur-xl;
+  }
+  .glass-strong {
+    @apply border border-white/15 bg-white/[0.09] backdrop-blur-2xl;
+  }
+  .text-gradient {
+    background-image: linear-gradient(90deg, #ffae3d, #ff9a1a 40%, #ffd08a 60%, #ff9a1a);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .section {
+    @apply relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 154, 26, 0.3);
+    background-color: rgba(255, 154, 26, 0.1);
+    padding: 0.375rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #ffae3d;
   }
 }
 
@@ -32,14 +66,14 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #031030;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: linear-gradient(#2459c4, #ff9a1a);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #ff9a1a;
 }
 
 /* Cercle Arc-en-Ciel animé autour du profil connecté */
@@ -48,41 +82,23 @@
   100% { transform: rotate(360deg); }
 }
 
-.rainbow-avatar-ring {
-  position: relative;
-  display: inline-flex;
-  padding: 2.5px;
-  border-radius: 9999px;
-  background: linear-gradient(45deg, #ff007f, #ff7700, #ffea00, #00e1ff, #7b00ff, #ff007f);
-  background-size: 300% 300%;
-  animation: rainbow-flow 4s ease infinite;
-}
-
 @keyframes rainbow-flow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Styles d'impression pour la Facture / Bordereau */
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  #printable-facture, #printable-facture * {
-    visibility: visible;
-  }
-  #printable-facture {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    margin: 0;
-    padding: 20px;
-    background: white !important;
-    color: black !important;
-  }
-  .no-print {
-    display: none !important;
-  }
+.rainbow-avatar-ring {
+  background: linear-gradient(
+    135deg,
+    #ff0055,
+    #ff7700,
+    #ffdd00,
+    #00ff66,
+    #00ccff,
+    #7700ff,
+    #ff0099
+  );
+  background-size: 300% 300%;
+  animation: rainbow-flow 3.5s ease infinite;
 }

@@ -52,3 +52,68 @@ export async function fetchApi<T = any>(endpoint: string, options: RequestInit =
 
   return data as T;
 }
+
+// Interfaces & Endpoints publics pour le suivi, agences et formulaires de contact
+
+export interface CommandeTracking {
+  numFacture: string;
+  statutCmd: string;
+  dateDepot: string;
+  nomAgence: string;
+  codeAgence: string;
+  nbArticles: number;
+  progression: number; // 0-100%
+  message: string;
+}
+
+export interface Agence {
+  idAgence: number;
+  codeAgence: string;
+  nomAgence: string;
+  typeAgence: string;
+  adresseAgence: string;
+  telAgence: string;
+  latitude?: number;
+  longitude?: number;
+  horaires?: string;
+  emailAgence?: string;
+}
+
+export interface Tarif {
+  idTarif: number;
+  prixUnitaire: number;
+  dateDebutValidite: string;
+  dateFinValidite: string | null;
+  prestation: {
+    idPrestation: number;
+    libellePrestation: string;
+    dureeEstimee: number | null;
+  };
+}
+
+export interface ContactForm {
+  nom: string;
+  email: string;
+  telephone?: string;
+  sujet: string;
+  message: string;
+}
+
+export async function trackCommande(numeroFacture: string): Promise<CommandeTracking> {
+  return fetchApi<CommandeTracking>(`/commandes/${numeroFacture.trim().toUpperCase()}/tracking`);
+}
+
+export async function fetchAgences(): Promise<Agence[]> {
+  return fetchApi<Agence[]>('/referentiel/agences');
+}
+
+export async function fetchTarifsActifs(): Promise<Tarif[]> {
+  return fetchApi<Tarif[]>('/referentiel/tarifs-actifs');
+}
+
+export async function envoyerContact(data: ContactForm): Promise<{ message: string; id: string }> {
+  return fetchApi<{ message: string; id: string }>('/public/contact', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+}
