@@ -1,0 +1,65 @@
+{
+  "name": "Atlantic Palace Pressing",
+  "short_name": "Atlantic Pressing",
+  "description": "Système de gestion et suivi de pressing haute couture - Atlantic Palace Pressing Yaoundé",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071c36",
+  "theme_color": "#081a36",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tableau de bord",
+      "short_name": "Dashboard",
+      "description": "Accéder directement au tableau de bord",
+      "url": "/comptoir?view=dashboard",
+      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Espace Client",
+      "short_name": "Client",
+      "description": "Suivre mes commandes et points de fidélité",
+      "url": "/espace-client",
+      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Caisse & Règlements",
+      "short_name": "Caisse",
+      "description": "Encaisser les versements et valider les retraits",
+      "url": "/caisse",
+      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}
