@@ -2,20 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-slate-900 text-slate-100 antialiased;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
+:root {
+  --navy: #061a49;
+  --orange: #ff9a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #031030 !important;
+  color: #ffffff !important;
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(36, 89, 196, 0.45), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(255, 154, 26, 0.18), transparent 60%) !important;
+  background-attachment: fixed !important;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #ff9a1a;
+  color: #031030;
 }
 
 /* Glassmorphism et styles vitrine boutique */
 @layer components {
   .glass {
-    @apply border border-white/10 bg-white/[0.05] backdrop-blur-xl;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
   .glass-strong {
-    @apply border border-white/15 bg-white/[0.09] backdrop-blur-2xl;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(3, 16, 48, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
   }
   .text-gradient {
     background-image: linear-gradient(90deg, #ffae3d, #ff9a1a 40%, #ffd08a 60%, #ff9a1a);
@@ -25,7 +49,26 @@
     color: transparent;
   }
   .section {
-    @apply relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @media (min-width: 640px) {
+    .section {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
   .eyebrow {
     display: inline-flex;
@@ -40,6 +83,24 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #ffae3d;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #ffae3d, #ff9a1a);
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #031030;
+    box-shadow: 0 10px 25px -5px rgba(255, 154, 26, 0.35);
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
   }
 }
 
@@ -62,18 +123,17 @@
 
 /* Scrollbar globale personnalisée */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
   background: #031030;
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(#2459c4, #ff9a1a);
-  border-radius: 4px;
+  border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff9a1a;
+  background: #ffae3d;
 }
 
 /* Cercle Arc-en-Ciel animé autour du profil connecté */

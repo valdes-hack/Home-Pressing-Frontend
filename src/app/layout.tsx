@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from 'next';
+import "@fontsource-variable/plus-jakarta-sans";
+import "@fontsource-variable/sora";
 import './globals.css';
 import PwaRegister from '@/components/PwaRegister';
 
@@ -51,7 +53,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Atlantic Palace" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className="min-h-screen bg-slate-50 text-slate-900 antialiased">
+      <body className="min-h-screen bg-navy-950 text-white antialiased font-sans">
         {children}
         <PwaRegister />
       </body>
